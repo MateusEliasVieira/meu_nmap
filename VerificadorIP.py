@@ -23,7 +23,7 @@ class VerificadorIP:
         except subprocess.CalledProcessError:
             return False
 
-    def iniciar_varredura_na_rede(self, rede, ip_inicial = 1, ip_final = 65535):
+    def iniciar_varredura_na_rede(self, rede, ip_inicial = 1, ip_final = 254):
         for i in range(ip_inicial, ip_final):  # Assume uma sub-rede /24
             ip = f"{rede}.{i}"
             if self.ping(ip):

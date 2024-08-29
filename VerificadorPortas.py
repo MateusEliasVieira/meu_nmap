@@ -1,9 +1,11 @@
 import socket
+from VerificadorIP import VerificadorIP
 
 class VerificadorPortas:
 
     def __init__(self):
         self.portas_abertas = []
+        self.ip_portas_abertas = []
         self.protocolos = [
             (80, "HTTP"),
             (443, "HTTPS"),
@@ -67,3 +69,11 @@ class VerificadorPortas:
             if self.testar_conexao(ip, protocolo[0]):
                 self.portas_abertas.append(protocolo)
         return self.portas_abertas
+
+    # def iniciar_varredura_completa_de_todos_ips_e_portas_famosas_ativas(self,rede):
+    #     verificador = VerificadorIP()
+    #     ips_ativos = verificador.iniciar_varredura_na_rede(rede,1,254)
+    #     for ip in ips_ativos:
+    #         lista = self.iniciar_varredura_portas_famosas(ip)
+
+
